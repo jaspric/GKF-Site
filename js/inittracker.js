@@ -68,8 +68,8 @@ $(document).ready(function() {
 
   $(document).on('click', '#nextTurn', function(){                              //if the 'next' button is clicked
     if ($(".globalrow").length > 1 ){                                           //if there are more than 1 characters added
-      $(".trackercontainer").prepend($(".globalrow").last());                   //put the last row first
-      $(".globalrow").first().hide().slideDown();                               //hide, then slide the last character into the first position
+      $(".trackercontainer").append($(".globalrow").first());                   //put the first row last
+      $(".globalrow").last().hide().slideDown();                                //hide, then slide the last character into the first position
       $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything thats not first
       $(".globalinit").first().addClass("glow");                                //glow the top div
     }
