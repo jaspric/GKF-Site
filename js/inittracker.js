@@ -4,13 +4,10 @@ $(document).ready(function() {
                                                                                 //initial alert
 
   $(document).on('click', '.btnClose', function() {                             //remove button
-    $(this).parent().parent().fadeOut(1000, function() {
-      $(this).remove();
+    $(this).parent().parent().remove();                                         //remove the row
       $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything not first
       $(".globalinit").first().addClass("glow");                                //glow top div
     });
-
-  });
 
   $('#initiative, #initname, #hp').keyup(function(e) {                          //if you press enter, click the add button
     if (e.keyCode == 13)
