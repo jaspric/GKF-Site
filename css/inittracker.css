@@ -59,7 +59,9 @@ body {
 .glow {
   box-shadow: 0px 0px 10px #c0392b;
 }
-
+#advanced {
+  display: none;
+}
 .btnClose{
     float:right;
     position: absolute;
