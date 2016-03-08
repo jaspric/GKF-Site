@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var i = 1;
-  $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative. HP is optional.</h4></div></div>').insertAfter(".instructions").hide().fadeIn(3000);
+  $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative. HP is optional.</h4></div></div>').appendTo("#initadd").hide().fadeIn(3000);
                                                                                 //initial alert
 
   $(document).on('click', '.btnClose', function() {                             //remove button
@@ -46,21 +46,21 @@ $(document).ready(function() {
     //begin if else
     if (!initname || !initnum) {                                                //if name or initative are blank, then:
       $('.initalert').remove();
-      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative.</h4></div></div>').insertAfter(".instructions").hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
 
     } else if (!($.isNumeric(hpnum)) && (!(hpnum == ""))) {                      //if hp is not numeric, then:
       $('.initalert').remove();
-      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for HP.</h4></div></div>').insertAfter(".instructions").hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for HP.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
       $('#hp').focus();
 
     } else if (!($.isNumeric(initnum)) && (!(initnum === NaN))) {               //if initative is not numeric, then:
       $('.initalert').remove();
-      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for initiative.</h4></div></div>').insertAfter(".instructions").hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for initiative.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
       $('#initiative').focus();
 
     } else if (!($.isNumeric(acnum)) && (!(acnum == ""))) {                     //if AC is not numeric, then:
       $('.initalert').remove();
-      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for AC.</h4></div></div>').insertAfter(".instructions").hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for AC.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
       $('#AC').focus();
 
     } else {
