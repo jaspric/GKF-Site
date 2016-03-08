@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var i = 1;
-  $('<div class="col-xs-6 col-md-4 initalert text-center"><h4>Please input name and initiative. HP is optional.</h4></div>').appendTo('#initadd').hide().fadeIn(3000);
+  $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative. HP is optional.</h4></div></div>').appendTo("#initadd").hide().fadeIn(3000);
                                                                                 //initial alert
 
   $(document).on('click', '.btnClose', function() {                             //remove button
@@ -9,9 +9,31 @@ $(document).ready(function() {
       $(".globalinit").first().addClass("glow");                                //glow top div
     });
 
-  $('#initiative, #initname, #hp').keyup(function(e) {                          //if you press enter, click the add button
+  $('#initiative, #initname, #hp, #ac').keyup(function(e) {                     //if you press enter, click the add button
     if (e.keyCode == 13)
       $('#characterAdd').click();
+  });
+
+  $("#remAll").click(function() {                                               //when the remove button is clicked
+    $(".globalrow").remove();                                                   //remove all added rows
+  });
+
+  $("#menuCollapse").click(function() {
+    if ($("#initadd").is(':visible')){
+    $("#initadd").slideUp();
+    $(".page-header").slideUp();
+  }else {
+    $("#initadd").slideDown();
+    $(".page-header").slideDown();
+  }
+  });
+
+  $("#info").click(function() {
+    if ($(".instructions").is(':visible')){
+    $(".instructions").slideUp();
+  }else {
+    $(".instructions").slideDown();
+  }
   });
 
   $("#characterAdd").click(function() {                                         //click function for add button
@@ -19,21 +41,27 @@ $(document).ready(function() {
     var initname = $('#initname').val();
     var initnum = $('#initiative').val();
     var hpnum = $('#hp').val();
+    var acnum = $('#ac').val();
 
     //begin if else
     if (!initname || !initnum) {                                                //if name or initative are blank, then:
       $('.initalert').remove();
-      $('<div class="col-xs-6 col-md-4 initalert text-center"><h4>Please input name and initiative.</h4></div>').appendTo('#initadd').hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please input name and initiative.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
 
     } else if (!($.isNumeric(hpnum)) && (!(hpnum == ""))) {                      //if hp is not numeric, then:
       $('.initalert').remove();
-      $('<div class="col-xs-6 col-md-4 initalert text-center"><h4>Please enter a numeric value for HP.</h4></div>').appendTo('#initadd').hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for HP.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
       $('#hp').focus();
 
     } else if (!($.isNumeric(initnum)) && (!(initnum === NaN))) {               //if initative is not numeric, then:
       $('.initalert').remove();
-      $('<div class="col-xs-6 col-md-4 initalert text-center"><h4>Please enter a numeric value for initiative.</h4></div>').appendTo('#initadd').hide().fadeIn(1500);
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for initiative.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
       $('#initiative').focus();
+
+    } else if (!($.isNumeric(acnum)) && (!(acnum == ""))) {                     //if AC is not numeric, then:
+      $('.initalert').remove();
+      $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Please enter a numeric value for AC.</h4></div></div>').appendTo("#initadd").hide().fadeIn(1500);
+      $('#AC').focus();
 
     } else {
 
@@ -46,12 +74,13 @@ $(document).ready(function() {
       $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
                                                                                 //add the box to the row
 
-      $('<div class="col-xs-5 col-md-6 nametag inittag"><span><p>' + initnum + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-left"><span><p></span><span class="glyphicon glyphicon-minus" id="minushp"> </span><span id="hptag">' + hpnum + '</span><span class="glyphicon glyphicon-plus" id="addhp"></span></p></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
+      $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initnum + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
                                                                                 //add the content to the box
 
       $('#initname').val('');                                                   //blank out inputs
       $('#initiative').val('');                                                 //blank out inputs
       $('#hp').val('');                                                         //blank out inputs
+      $('#ac').val('');
 
       $('.trackercontainer').append($('.globalrow').sort(function(b, a) {       //sort rows
         return $(a).data('index') - $(b).data('index');
