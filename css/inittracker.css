@@ -45,7 +45,9 @@ body {
 .initinput {
   padding: 15px;
 }
-
+.disabledinit{
+  background-color: #000000;
+}
 .initalert {
   color: #c0392b;
   text-align: center;
