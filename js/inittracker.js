@@ -82,7 +82,7 @@ function initNumerical(init){
     for(j = numactors; j > 0; j--){                                   //for every number of actor greater than 0, subtract 1 until 0.
       i++;
       var initplusmod = (d20() + parseInt(initmod, 10));
-      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".container");
+      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
       $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
       $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + j + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
     };
@@ -92,7 +92,7 @@ function initNumerical(init){
     var initplusmod = (d20() + parseInt(initmod, 10));
     $('.initalert').remove();
     i++;
-    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".container");
+    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
     $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
     $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
     $('#initname').val('');                                                   //blank out inputs
@@ -108,7 +108,7 @@ function initNumerical(init){
     for(j = numactors; j > 0; j--){                                   //for every number of actor greater than 0, subtract 1 until 0.
       i++;
       var initplusmod = parseInt(init, 10) + parseInt(initmod, 10);
-      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".container");
+      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
       $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
       $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + j + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
     };
@@ -118,7 +118,7 @@ function initNumerical(init){
     var initplusmod = parseInt(init, 10) + parseInt(initmod, 10);
     $('.initalert').remove();
     i++;
-    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".container");
+    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
     $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
     $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
     $('#initname').val('');                                                   //blank out inputs
@@ -256,6 +256,7 @@ function initNumerical(init){
       $(".globalrow").last().hide().slideDown();                                //hide, then slide the last character into the first position
       $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything thats not first
       $(".globalinit").first().addClass("glow");                                //glow the top div
+      console.log("Next turn successful.")
     }
   });
 
