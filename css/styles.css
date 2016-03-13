@@ -170,14 +170,13 @@ ul{
 }
 
 .post-head{
-  background-color: #e74c3c;
-  width: 80%;
+  background-color: #c0392b;
+  width: 95%;
   color: #ecf0f1;
   margin: 0 auto;
   padding: 15px 30px;
   text-align: center;
   font-family: "Oswald", sans-serif;
-  border-bottom: solid 2px #ecf0f1;
 }
 
 .post-head h1, h2, h3, h4, h5{
@@ -187,12 +186,14 @@ ul{
   font-weight: 300;
 }
 
+
 .post-content{
   background-color: #E6DADA;
-  width: 80%;
-  margin: 0 auto;
+  width: 95%;
+  margin: 0 auto 25px;
   color: #000;
   padding: 25px 30px;
+  overflow: none;
 }
 
 .post-content h4{
@@ -201,15 +202,23 @@ ul{
 
 .footer-full{
   background-color: #420000;
-  height: 150px;
+  height: 100px;
 }
 
-@media (max-width:450px) {
+@media (max-width:555px) {
+
+  .navbar-full {
+    z-index: 9000;
+  }
+  .body-container{
+    z-index: -1;
+  }
 
   .navbar-full{
     margin: 0;
     border-bottom: 0;
     display: none;
+    position: absolute;
   }
 
   .navbar ul {
@@ -267,11 +276,6 @@ ul{
     display: none;
   }
 
-  .navbar-full{
-    background-color: #c0392b;
-    width: 100%;
-  }
-
   .main-container{
     margin: 0 auto -50px;
   }
@@ -282,23 +286,55 @@ ul{
 
 }
 
-@media (min-width: 451px) and (max-width:1139px) {
+@media (min-width: 555px) and (max-width: 1129px)  {
 
-  .brands {
-    margin: 15px 0 10px 15px;
+  .brands-container h1{
+  font-size: 2.5em;
+  margin-top: 20px;
   }
 
-  .brands-container{
-    margin: 25px 15px 20px 25px;
+  .search-container{
+    margin: 25px;
+  }
+  #search-gkf{
+    border: none;
+    padding: 5px;
+    border-bottom: solid 2px #dcdcdc;
+    transition: border 0.3s;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    box-shadow: none;
+    float: left;
   }
 
-  #main-nav{
-    display: block;
+  #search-btn {
+    border: none;
+    font-size: 14px;
+    padding: 15px;
+    margin: 0;
+    transition: border 0.3s;
+    background: url("../img/search.png");
+    background-repeat: no-repeat;
+    background-color: #dcdcdc;
+    background-position: center;
+    border-bottom: solid 2px #dcdcdc;
+    float: left;
   }
 
   .navbar-container{
     overflow: visible;
+    width: 100%;
   }
+
+  .body-container{
+    width: 100%;
+    z-index: 1;
+  }
+  #main-nav{
+    display: block;
+  }
+
   .navbar ul{
     right: 0;
     position: absolute;
@@ -311,15 +347,44 @@ ul{
     width: 20%;
     text-align: center;
   }
+  .navbar ul li:hover{
+    background-color: #e74c3c;
+  }
   .navbar li ul li{
     display: block;
     float: none;
     width: 100%;
+    background-color: #c0392b;
+    font-weight: 300;
+  }
+
+  .navbar ul li ul li {
+    border-left: solid 2px #c0392b;
+    border-right: solid 2px #c0392b;
+    border-bottom: none;
+  }
+  .navbar ul li ul li:hover {
+    border-bottom: none;
   }
 
   .navbar li ul{
     display: none;
+    margin-top: 2px;
+    border-bottom: solid 2px #c0392b;
   }
+
+  .navbar-full{
+    display: block;
+  }
+
+  .main-container{
+    margin: 0 auto -75px;
+  }
+
+  .footer-full, .push{
+    height: 75px;
+  }
+
 
 }
 
@@ -332,6 +397,14 @@ ul{
 
   .brands-container{
     margin: 25px 15px 20px 25px;
+  }
+
+  .brands-container h1{
+    font-size: 4em;
+  }
+
+  .search-container{
+    margin-top: 49px;
   }
 
   .navbar-full * {
@@ -368,33 +441,38 @@ ul{
   }
   .navbar ul li {
     display: inline-block;
+    transition: background-color 0.5s, border 0.5s;
     float: left;
     width: 20%;
     text-align: center;
   }
   .navbar ul li:hover{
-    background-color: #c0392b;
+    background-color: #e74c3c;
   }
+
   .navbar li ul li{
+
+    border-bottom: solid 2px #e74c3c;
+    background-color: #e74c3c;
+    font-weight: 300;
+  }
+
+  .navbar ul li ul li {
     display: block;
     float: none;
     width: 100%;
     background-color: #e74c3c;
-  }
-
-  .navbar ul li ul li {
-    border-left: solid 2px #c0392b;
-    border-right: solid 2px #c0392b;
-    border-bottom: none;
+    border-bottom: solid 2px #c0392b;
   }
   .navbar ul li ul li:hover {
-    border-bottom: none;
+    border-bottom: solid 2px #ecf0f1;
+    background-color: #c0392b;
   }
 
   .navbar li ul{
     display: none;
     margin-top: 2px;
-    border-bottom: solid 2px #c0392b;
+    border-bottom: none;
   }
 
   .navbar-full{
