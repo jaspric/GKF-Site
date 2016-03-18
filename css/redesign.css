@@ -1,0 +1,355 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light|Montserrat|Oswald:400,300,700);
+
+#inputcontainer input{
+  outline: none;
+  border-bottom: solid 3px #dcdcdc;
+  border-top: solid 1px #dcdcdc;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  background-color: #FFF;
+  transition: border-bottom 0.4s;
+  font-size: 16px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+
+}
+
+#inputcontainer input:focus{
+  outline: none;
+  border-bottom: solid 3px #c0392b;
+}
+
+#inputcontainer input:disabled{
+  outline: none;
+  background-color: #dcdcdc;
+}
+
+#inputcontainer button{
+  outline: None;
+}
+
+.clearfix{
+  clear: both;
+}
+
+#messages{
+  width: 85%;
+  padding: 20px;
+  height: 38px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  color: #c0392b;
+  clear: both;
+}
+/* INPUT & BUTTON STYLING */
+
+  #menuCollapse{
+    background-image: url("../img/menu.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #info{
+    background-image: url("../img/info.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #nextTurn{
+    background-image: url("../img/arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #characterAdd{
+    background-image: url("../img/add.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #remAll{
+    background-image: url("../img/remove.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #advancedOptions{
+    background-image: url("../img/hand.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  #inputcontainer{
+    width: 100%;
+    background-color: #ecf0f1;
+    margin: 15px 0;
+  }
+
+  #headbuttons, #inputarea, #bottombuttons {
+    width: 92.5%;
+    margin: 20px auto;
+    background-color: #ecf0f1;
+    clear: both;
+  }
+
+  #maininput{
+    clear:both;
+    margin: 5px;
+  }
+
+  #hpadd{
+    border: none;
+    background: none;
+  }
+
+  #numActors{
+    clear: right;
+  }
+
+  #initinputname{
+    width: 100%;
+    margin: 5px auto;
+    float: none;
+  }
+
+  #initMod, #numActors{
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  .inputname{
+    padding: 10px;
+    display: inline;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .input{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .initinputrow{
+    width: 100%;
+    text-align: center;
+  }
+
+  .initinputsmall{
+    width: 50%;
+    float: left;
+  }
+
+  div.initbutton{
+    width: 33.3%;
+    margin: 0 auto;
+    display: block;
+    float: left;
+  }
+
+  div.initcheckbox{
+    width: 100%;
+    display: block;
+    float: left;
+    text-align: center;
+  }
+
+  div.initinput
+  {
+    width: 33.3%;
+    display: block;
+    float: left;
+    text-align: center;
+  }
+
+  #inputcontainer label{
+    font-family: "Montserrat", sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  #autoRollInit{
+    margin-top: 28px;
+    margin-left: 5px;
+    padding: 10px;
+    transform: scale(1.5);
+    display: inline-block;
+  }
+
+  .initiativebutton{
+    padding: 25px;
+    width: 25px;
+    height: 25px;
+    margin: 4px auto;
+    border: none;
+    background-color: #c0392b;
+    border-radius: 15%;
+    transition: background-color 0.4s;
+    display: block;
+  }
+
+  .initiativebutton:hover{
+    background-color: #e74c3c;
+  }
+
+  .initiativebutton:active{
+    background-color: #bdc3c7;
+  }
+
+/* ACTOR CONTAINER STYLING */
+
+  #allactors{
+    width: 100%;
+    background-color: #ecf0f1;
+    margin: 15px 0;
+    overflow: auto;
+  }
+
+  .actorcontainer{
+    width: 92.5%;
+    margin: 10px auto;
+  }
+
+  .actorhead{
+    width: 100%;
+    background-color: #c0392b;
+    clear: both;
+    overflow: auto;
+  }
+
+  .actormove{
+    background-image: url("../img/move.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+    width: 25px;
+    height: 16px;
+    padding: 13px;
+
+  }
+  .actorname{
+    padding: 2px 7px;
+    float: left;
+    width: 65%;
+  }
+
+  .actorname h2{
+    font-family: "Oswald", sans-serif;
+    color: #ecf0f1;
+    font-weight: 300;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .close {
+    background-image: url("../img/xclose.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 11px;
+    display: block;
+    float: right;
+    padding: 5px 10px 10px 10px;
+  }
+
+  .actorbody{
+    width: 100%;
+    background-color: #bdc3c7;
+    clear: both;
+    overflow: auto;
+  }
+
+  .actorinit{
+    padding: 10px 0;
+    width: 32%;
+    height: 78px;
+    background-image: url("../img/greend20.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+  }
+
+  .actorinit p{
+    font-family: "Oswald", sans-serif;
+    color: #ecf0f1;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .actorhp{
+    padding: 10px 0;
+    width: 36%;
+    height: 78px;
+    background-image: url("../img/redcross.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+  }
+
+  .actorhp p{
+    font-family: "Oswald", sans-serif;
+    color: #ecf0f1;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .hpminus{
+    background-image: url("../img/hpminus.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-right: 2px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .hpplus{
+    background-image: url("../img/hpplus.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-left: 2px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .actorac{
+    padding: 10px 0;
+    width: 32%;
+    height: 78px;
+    background-image: url("../img/blueshield.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    float: right;
+  }
+
+  .actorac p{
+    font-family: "Oswald", sans-serif;
+    color: #ecf0f1;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+  }
+
+.sortable{
+  list-style-type: none;
+}
