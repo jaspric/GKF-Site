@@ -54,6 +54,8 @@ function numActors(numactors){
 		return false;
 	}else{
 		console.log("Number of actors is not blank, and not numeric.");
+    $('.orcsay').remove();
+    $('<div class="orcsay"><h4>Goblin say: I let slide this time, but only numbers in actors box! Or I get angry! </h4></div>').appendTo("#messages").hide().fadeIn(1500);
 	};
 };
 
@@ -78,23 +80,22 @@ function initNumerical(init){
 };
 
   function autoRollWithActors(initmod, initname, hpnum, acnum, numactors){
-    $('.initalert').remove();
+    $('.orcsay').remove();
     for(j = numactors; j > 0; j--){                                   //for every number of actor greater than 0, subtract 1 until 0.
       i++;
       var initplusmod = (d20() + parseInt(initmod, 10));
-      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
-      $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
-      $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + j + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
+      console.log("Auto roll with actors is iniatiated.");
+      $('<div class="actorcontainer globalactor' + i + '" data-index="' + initplusmod + '"><div>').appendTo("#allactors");
+      $('<div class="actorhead"><div class="actormove"></div><div class="actorname"><h2>'+initname+j+'</h2></div><div class="close"></div></div><div class="actorbody"><div class="actorinit"><p>'+initplusmod+'</p></div><div class="actorhp"><p><button class="hpminus"></button><span id="hptag">'+hpnum+'</span><button class="hpplus"></button></p></div><div class="actorac"><p><span id="actag">'+acnum+'</span></p></div></div>').appendTo(".globalactor" + i).hide().fadeIn(1000);
     };
   };
 
   function autoRollNoActors(initmod, initname, hpnum, acnum){
     var initplusmod = (d20() + parseInt(initmod, 10));
-    $('.initalert').remove();
+    $('.orcsay').remove();
     i++;
-    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
-    $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
-    $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
+    $('<div class="actorcontainer globalactor' + i + '" data-index="' + initplusmod + '"><div>').appendTo("#allactors");
+    $('<div class="actorhead"><div class="actormove"></div><div class="actorname"><h2>'+initname+'</h2></div><div class="close"></div></div><div class="actorbody"><div class="actorinit"><p>'+initplusmod+'</p></div><div class="actorhp"><p><button class="hpminus"></button><span id="hptag">'+hpnum+'</span><button class="hpplus"></button></p></div><div class="actorac"><p><span id="actag">'+acnum+'</span></p></div></div>').appendTo(".globalactor" + i).hide().fadeIn(1000);
     $('#initname').val('');                                                   //blank out inputs
     $('#initiative').val('');                                                 //blank out inputs
     $('#hp').val('');                                                         //blank out inputs
@@ -103,24 +104,22 @@ function initNumerical(init){
   };
 
   function manualRollWithActors(init, initmod, initname, hpnum, acnum, numactors){
-    $('.initalert').remove();
+    $('.orcsay').remove();
 
     for(j = numactors; j > 0; j--){                                   //for every number of actor greater than 0, subtract 1 until 0.
       i++;
       var initplusmod = parseInt(init, 10) + parseInt(initmod, 10);
-      $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
-      $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
-      $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + j + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
+      $('<div class="actorcontainer globalactor' + i + '" data-index="' + initplusmod + '"><div>').appendTo("#allactors");
+      $('<div class="actorhead"><div class="actormove"></div><div class="actorname"><h2>'+initname+j+'</h2></div><div class="close"></div></div><div class="actorbody"><div class="actorinit"><p>'+initplusmod+'</p></div><div class="actorhp"><p><button class="hpminus"></button><span id="hptag">'+hpnum+'</span><button class="hpplus"></button></p></div><div class="actorac"><p><span id="actag">'+acnum+'</span></p></div></div>').appendTo(".globalactor" + i).hide().fadeIn(1000);
     };
   };
 
   function manualRoll(init, initmod, initname, hpnum, acnum){
     var initplusmod = parseInt(init, 10) + parseInt(initmod, 10);
-    $('.initalert').remove();
+    $('.orcsay').remove();
     i++;
-    $($('<div class="row globalrow newinitrow' + i + '" data-index="' + initplusmod + '"></div>')).appendTo(".initcontainer");
-    $('<div class="col-xs-12 col-md-offset-2 col-md-8 globalinit addedinit' + i + '"></div>').appendTo(".newinitrow" + i).hide().fadeIn(1000);
-    $('<div class="col-xs-4 col-md-4 col-lg-4 text-left"><span><p>' + initplusmod + ' ' + initname + '</p></span></div><div class="col-xs-5 col-md-4 text-center hpdiv"><p><button id="minushp"><span class="glyphicon glyphicon-minus"></span></button><span id="hptag">' + hpnum + '</span><button id="addhp"><span class="glyphicon glyphicon-plus"></span></button></p></div><div class="col-xs-3 col-md-2 col-lg-2 text-left"><span><p>AC:' + acnum + '</p></span></div><div class="btnClose"><span class="glyphicon glyphicon-remove"></span></div>').appendTo(".addedinit" + i);
+    $('<div class="actorcontainer globalactor' + i + '" data-index="' + initplusmod + '"><div>').appendTo("#allactors");
+    $('<div class="actorhead"><div class="actormove"></div><div class="actorname"><h2>'+initname+'</h2></div><div class="close"></div></div><div class="actorbody"><div class="actorinit"><p>'+initplusmod+'</p></div><div class="actorhp"><p><button class="hpminus"></button><span id="hptag">'+hpnum+'</span><button class="hpplus"></button></p></div><div class="actorac"><p><span id="actag">'+acnum+'</span></p></div></div>').appendTo(".globalactor" + i).hide().fadeIn(1000);
     $('#initname').val('');                                                   //blank out inputs
     $('#initiative').val('');                                                 //blank out inputs
     $('#hp').val('');                                                         //blank out inputs
@@ -129,44 +128,53 @@ function initNumerical(init){
   };
 
 
-  $(document).on('click', '.btnClose', function() {                             //remove button
+  $(document).on('click', '.close', function() {                             //remove button
     $(this).parent().parent().remove();                                         //remove the row
-      $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything not first
-      $(".globalinit").first().addClass("glow");                                //glow top div
     });
 
-  $('#initiative, #initname, #hp, #ac').keyup(function(e) {                     //if you press enter, click the add button
+  $('#initiative, #initname, #hp, #ac, #initMod, #numActors').keyup(function(e) {                     //if you press enter, click the add button
     if (e.keyCode == 13)
       $('#characterAdd').click();
   });
 
   $("#remAll").click(function() {                                               //when the remove button is clicked
-    $(".globalrow").remove();                                                   //remove all added rows
-    $('.initalert').remove();
+    $(".actorcontainer").remove();                                                   //remove all added rows
+    $('.orcsay').remove();
   });
 
   $("#menuCollapse").click(function() {
-    if ($("#initadd").is(':visible')){
-    $("#initadd").slideUp();
-    $("#advanced").slideUp();
-    $(".page-header").slideUp();
+    if ($("#inputarea").is(':visible')){
+    $("#inputarea").slideUp();
   }else {
-    $("#initadd").slideDown();
-    $(".page-header").slideDown();
+    $("#inputarea").slideDown();
   }
   });
 
-  $("#advancedOptions").click(function() {
-    if ($("#advanced").is(':visible')){
-    $("#advanced").slideUp();
-  }else {
-    $("#advanced").slideDown();
-    $("#initMod").val('');
-    $("#numActors").val('');
-    $("#autoRollInit").prop('checked', false);
-  }
-  $('#initiative').prop('disabled', false);
+  $(document).on('click', '.actormove', function() {
+    console.log("this is working");
+    $(this).parent().parent().find(".actorbody").slideToggle();
   });
+
+
+
+  $("#allactors").sortable({
+    disabled: true,
+    revert: true,
+    scroll: false
+  });
+
+  $(document).on('click', '#advancedOptions', function(){
+    if ($('#allactors').sortable("option" ,"disabled")){
+      $('#allactors').sortable("enable");
+      $('.orcsay').remove();
+      $('<div class="orcsay"><h4>Goblin say: players sortable!</h4></div>').appendTo("#messages").hide().fadeIn(1500);
+    }else{
+      $('#allactors').sortable('disable');
+      $('.orcsay').remove();
+      $('<div class="orcsay"><h4>Goblin say: players not sortable!</h4></div>').appendTo("#messages").hide().fadeIn(1500);
+    }
+  });
+
 
   $("#info").click(function() {
     if ($(".instructions").is(':visible')){
@@ -210,8 +218,8 @@ function initNumerical(init){
                 if(initNumerical(init)){
                   manualRollWithActors(init, initmod, name, hp, ac, actors);
                 }else{
-                  $('.initalert').remove();
-                  $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: Why you put NOT number in init box???</h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+                  $('.orcsay').remove();
+                  $('<div class="orcsay"><h4>Goblin say: Why you put NOT number in init box???</h4></div></div>').insertAfter("#messages").hide().fadeIn(1500);
                 }
               }
             }else{
@@ -221,65 +229,60 @@ function initNumerical(init){
                 if(initNumerical(init)){
                   manualRoll(init, initmod, name, hp, ac);
                 }else{
-                  $('.initalert').remove();
-                  $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: Why you put NOT number in init box???</h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+                  $('.orcsay').remove();
+                  $('<div class="orcsay"><h4>Goblin say: Why you put NOT number in init box???</h4></div>').appendTo("#messages").hide().fadeIn(1500);
                 }
               }
             }
           }else{
-            $('.initalert').remove();
-            $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: ONLY NUMBER IN INIT BOX!!! How many times I have to say?? </h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+            $('.orcsay').remove();
+            $('<div class="orcsay"><h4>Goblin say: ONLY NUMBER IN INIT MOD BOX!!! How many times I have to say?? </h4></div>').appendTo("#messages").hide().fadeIn(1500);
           }
         }else{
-          $('.initalert').remove();
-          $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: only number or nothing in AC!</h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+          $('.orcsay').remove();
+          $('<div class="orcsay"><h4>Goblin say: only number or nothing in AC!</h4></div>').appendTo("#messages").hide().fadeIn(1500);
         }
       }else{
-        $('.initalert').remove()
-        $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: only number for HP or I smash!</h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+        $('.orcsay').remove()
+        $('<div class="orcsay"><h4>Goblin say: only number for HP or I smash!</h4></div>').appendTo("#messages").hide().fadeIn(1500);
       }
     }else{
-        $('.initalert').remove();
-        $('<div class="row alertrow"><div class="col-xs-12 initalert text-center"><h4>Orc say: what the name?</h4></div></div>').insertAfter("#advanced").hide().fadeIn(1500);
+        $('.orcsay').remove();
+        $('<div class="orcsay"><h4>Goblin say: what the name?</h4></div>').appendTo("#messages").hide().fadeIn(1500);
     }
-    $('.trackercontainer').append($('.globalrow').sort(function(b, a) {       //sort rows
+    $('#allactors').append($('.actorcontainer').sort(function(b, a) {           //sort rows
       return $(a).data('index') - $(b).data('index');
     }));
-
-    $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything not first
-    $(".globalinit").first().addClass("glow");
   });                                                                           //end character add button
 
   $(document).on('click', '#nextTurn', function(){                              //if the 'next' button is clicked
-    if ($(".globalrow").length > 1 ){                                           //if there are more than 1 characters added
-      $(".trackercontainer").append($(".globalrow").first());                   //put the first row last
-      $(".globalrow").last().hide().slideDown();                                //hide, then slide the last character into the first position
-      $('.globalinit').not(":first").removeClass("glow");                       //remove glow of everything thats not first
-      $(".globalinit").first().addClass("glow");                                //glow the top div
+    if ($(".actorcontainer").length > 1 ){                                      //if there are more than 1 characters added
+      $("#allactors").append($(".actorcontainer").first());                     //put the first row last
+      $(".actorcontainer").first().hide().slideDown();
       console.log("Next turn successful.")
     }
   });
 
-  $(document).on('click', '#addhp', function() {                                //add HP button
+  $(document).on('click', '.hpplus', function() {                                //add HP button
     var hp = $(this).parent().find('#hptag').text();
     hp++;
     $(this).parent().find('#hptag').text(hp);
   });
 
-  $(document).on('click', '#minushp', function() {                              //minus HP button
+  $(document).on('click', '.hpminus', function() {                              //minus HP button
     var hp = $(this).parent().find('#hptag').text();
     hp--;
     $(this).parent().find('#hptag').text(hp);
   });
 
-  $(document).on('click', '#hptag', function() {                                //if #hptag is clicked
+  $(document).on('click', '#hptag, #actag', function() {                        //if #hptag is clicked
     $(this).attr('contentEditable', true);                                      //make it editable
   });
 
-  $(document).on('keydown', '#hptag', function(e) {                                                //if a key is pressed in a div
+  $(document).on('keydown', '#hptag, #actag', function(e) {                                                //if a key is pressed in a div
       if (e.keyCode === 13) {                                                   //and that key is enter
         e.preventDefault();                                                     //prevent the default behaviour of return key pressed
-        $('#hptag').attr('contentEditable', false);                             //and make #hptag not editable
+        $(this).attr('contentEditable', false);                             //and make #hptag not editable
       } else if (e.keyCode !== 48 &&
                e.keyCode !== 49 &&
                e.keyCode !== 50 &&

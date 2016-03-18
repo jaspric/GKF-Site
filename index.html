@@ -1,12 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Goblin Knife Fight</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/inittracker.css" rel="stylesheet" type="text/css">
+    <link href="css/redesign.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
   </head>
 
@@ -24,8 +22,9 @@
             </div>
             <div class="search-container">
               <form>
-                <input type="text" id="search-gkf" placeholder="Search" autofocus /><button id="search-btn" type="button"></button>
+                <input type="text" id="search-gkf" placeholder="Search" autocomplete="off" autofocus /><button id="search-btn" type="button"></button>
               </form>
+              <ul id="typeahead"></ul>
             </div>
         </div>
       </div>
@@ -42,6 +41,7 @@
                 <ul class="sub-nav">
                   <li><a href="inittracker.html" dest="inittrackerimport.html">Initiative Tracker</a></li>
                   <li><a href="#encgen">Encounter Generator</a></li>
+                  <li><a href="#encgen">Spellbook</a></li>
                   <li><a href="#moncreate">Monster Creator</a></li>
                   <li><a href="#npcgen">NPC Generator</a></li>
                   <li><a href="#diceroll">Dice Roller</a></li>
@@ -50,25 +50,57 @@
             </ul>
           </nav>
         </div>
+        <br class="clearfix" />
       </div>
 
       <div class="body-full">
         <div class="body-container">
 
-            <div class="post-head">
-              <div class="post-title">
-                <h2>GKF 1.0</h2>
+
+            <div class="postcontainer">
+
+              <div class="post-head">
+                <div class="post-title">
+                  <h1>Introducing the New Initative Tracker</h1>
+                </div>
               </div>
+
+              <div class="post-content">
+                <p>
+                  The initative tracker has been redesigned!<br /> <br />A few new features have also been added:<br /><br />
+                  <ul>
+                    <li>Click'n'drag sortable actors</li>
+                    <li>Collapsible actors</li>
+                    <li>Improved graphical interface</li>
+                    <li>Click to change AC</li>
+                  </ul>
+                  <br /><br />
+                  We hope you enjoy these new features. Now <b>ROLL INITATIVE!</b>
+                </p>
+                <br />
+                <h4>Goblin &mdash; 2016/03/17 10:40 PM</h4>
+              </div>
+
             </div>
 
-            <div class="post-content">
-              <p>
-                Welcome to Goblin Knife Fight. Goblin Knife Fight is a suite of tools designed &mdash; with mobile in mind &mdash; to make the dungeon master's life easier. In our current tool set, we already have a great initiative
-                tracker up and running, and are working to bring you several more tools to make your life easier. Please send any feedback, ideas, or suggestions you have to our
-                <a href="mailto://suggestions@goblinknifefight.com">suggestions</a> email. Happy dungeon crawling! <b>ROLL INITIATIVE!</b>
-              </p>
-              <br />
-              <h4>Goblin &mdash; 2016/03/10 08:49 PM</h4>
+            <div class="postcontainer">
+
+              <div class="post-head">
+                <div class="post-title">
+                  <h1>GKF 1.0</h1>
+                </div>
+              </div>
+
+              <div class="post-content">
+                <p>
+                  Welcome to Goblin Knife Fight. Goblin Knife Fight is a suite of tools designed &mdash; with mobile in mind &mdash; to make the dungeon master's life easier. In our current tool set, we already have a great initiative
+                  tracker up and running, and are working to bring you several more tools to make your life easier. Please send any feedback, ideas, or suggestions you have to our
+                  <a href="mailto://suggestions@goblinknifefight.com">suggestions</a> email. Happy dungeon crawling! <b>ROLL INITIATIVE!</b>
+                </p>
+                <br />
+                <h4>Goblin &mdash; 2016/03/10 08:49 PM</h4>
+              </div>
+
             </div>
 
         </div>
@@ -85,8 +117,8 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
 
   </body>
 </html>
